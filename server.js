@@ -6,11 +6,14 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-const PORT = process.env.PORT || 8080;
+app.set('port', (process.env.PORT || 5000));
 
-app.get('/', function (req, res) {
-    res.send('Hello World')
-})
+app.get('/', function(request, response) {
+    let result = 'App is running'
+    response.send(result);
+}).listen(app.get('port'), function() {
+    console.log('App is running, server is listening on port ', app.get('port'));
+});
 
 
 app.post('/email', (req, res) => {
@@ -26,6 +29,6 @@ app.post('/email', (req, res) => {
     });
 })
 
-app.listen(8080,  () => {
-    console.log('Server is listening on port ', PORT)
-})
+// app.listen(5000,  () => {
+//     console.log('Server is listening on port ', app.get('port'))
+// })

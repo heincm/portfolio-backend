@@ -28,7 +28,3 @@ app.post('/email', (req, res) => {
         }
     });
 })
-
-// app.listen(5000,  () => {
-//     console.log('Server is listening on port ', app.get('port'))
-// })

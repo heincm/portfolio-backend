@@ -9,12 +9,14 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.set('port', (process.env.PORT || 5000));
 
 app.use(function (req, res, next) {
-
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-    res.setHeader('Access-Control-Allow-Origin','https://aqueous-anchorage-00407.herokuapp.com');
+    const allowedOrigins = ['http://localhost:3000', 'https://aqueous-anchorage-00407.herokuapp.com']
+    const origin = req.headers.origin;
+    if (allowedOrigins.includes(origin)) {
+        res.setHeader('Access-Control-Allow-Origin', origin);
+    }
     // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
 
     // Request headers you wish to allow
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');

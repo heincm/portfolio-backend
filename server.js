@@ -10,7 +10,7 @@ app.set('port', (process.env.PORT || 5000));
 
 app.use(function (req, res, next) {
     // Website you wish to allow to connect
-    const allowedOrigins = ['http://localhost:3000', 'https://aqueous-anchorage-00407.herokuapp.com']
+    const allowedOrigins = ['http://localhost:3000', 'https://chrishein.herokuapp.com', "https://chris-hein.onrender.com/"]
     const origin = req.headers.origin;
     if (allowedOrigins.includes(origin)) {
         res.setHeader('Access-Control-Allow-Origin', origin);

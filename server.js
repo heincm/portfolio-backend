@@ -51,3 +51,9 @@ app.post('/email', (req, res) => {
         }
     });
 })
+
+app.get('/keepalive', function(req, res) {
+    let result = 'App is alive'
+    res.send(result);
+    console.log('app is alive')
+})
